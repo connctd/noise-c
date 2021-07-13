@@ -101,6 +101,7 @@ extern "C" {
 #define NOISE_PREFIX_CATEGORY           NOISE_ID('N', 0)
 #define NOISE_PREFIX_STANDARD           NOISE_ID('N', 1)
 #define NOISE_PREFIX_PSK                NOISE_ID('N', 2)
+#define NOISE_PREFIX_KRACH              NOISE_ID('N', 3)
 
 /* Signature algorithms */
 #define NOISE_SIGN_NONE                 0

@@ -114,6 +114,7 @@ static NoiseIdMapping const algorithm_names[] = {
     /* Protocol name prefixes */
     {NOISE_PREFIX_STANDARD,     "Noise",         5},
     {NOISE_PREFIX_PSK,          "NoisePSK",      8},
+    {NOISE_PREFIX_KRACH,        "Krach",         5},
 
     /* Signature algorithms */
     {NOISE_SIGN_ED25519,        "Ed25519",       7},
