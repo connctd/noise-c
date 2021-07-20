@@ -17,3 +17,6 @@ missing
 test-driver
 .dirstamp
 ylwrap
+build
+src/noiseprotocol_build-stamp/
+tmp
