@@ -21,7 +21,7 @@ externalproject_add(noiseprotocol_build
           "LDFLAGS=${CMAKE_EXE_LINKER_FLAGS}"
     BUILD_IN_SOURCE 1
     # BUILD_DIR build
-    BUILD_COMMAND make
+    BUILD_COMMAND make clean && make
     INSTALL_COMMAND make install
     )
 
@@ -33,6 +33,10 @@ externalproject_add(noiseprotocol_build
  set_target_properties(noise-c PROPERTIES INTERFACE_INCLUDE_DIRECTORIES
       ${COMPONENT_DIR}/build/include)
 
- set_directory_properties( PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES
-      "${COMPONENT_DIR}/build/**/*")
+set_property(DIRECTORY APPEND PROPERTY ADDITIONAL_MAKE_CLEAN_FILES
+     "${COMPONENT_DIR}/build/**/*"
+     "${COMPONENT_DIR}/src/**/*.o"
+  )
+ #set_directory_properties( PROPERTIES ADDITIONAL_MAKE_CLEAN_FILES
+ #     "${COMPONENT_DIR}/build/**/*")
 
