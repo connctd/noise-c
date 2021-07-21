@@ -25,13 +25,13 @@ externalproject_add(noiseprotocol_build
     INSTALL_COMMAND make install
     )
 
- add_library(noise-c STATIC IMPORTED GLOBAL)
- add_dependencies(noise-c noiseprotocol_build)
+add_library(noise-c STATIC IMPORTED GLOBAL)
+add_dependencies(noise-c noiseprotocol_build)
 
- set_target_properties(noise-c PROPERTIES IMPORTED_LOCATION
-      ${COMPONENT_DIR}/build/lib/noiseprotocol.a)
- set_target_properties(noise-c PROPERTIES INTERFACE_INCLUDE_DIRECTORIES
-      ${COMPONENT_DIR}/build/include)
+set_target_properties(noise-c PROPERTIES IMPORTED_LOCATION
+     ${COMPONENT_DIR}/build/lib/noiseprotocol.a)
+set_target_properties(noise-c PROPERTIES INTERFACE_INCLUDE_DIRECTORIES
+     ${COMPONENT_DIR}/build/include)
 
 set_property(DIRECTORY APPEND PROPERTY ADDITIONAL_MAKE_CLEAN_FILES
      "${COMPONENT_DIR}/build/**/*"
