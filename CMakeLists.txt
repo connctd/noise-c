@@ -20,7 +20,7 @@ externalproject_add(noiseprotocol_build
           "CXXFLAGS=${CMAKE_CXX_FLAGS}"
           "LDFLAGS=${CMAKE_EXE_LINKER_FLAGS}"
     BUILD_IN_SOURCE 1
-    BUILD_BYPRODUCTS ${COMPONENT_DIR}/build/lib/noiseprotocol.a
+    BUILD_BYPRODUCTS ${COMPONENT_DIR}/build/lib/libnoiseprotocol.a
     # BUILD_ALWAYS 1
     # BUILD_DIR build
     BUILD_COMMAND make clean && make
@@ -33,7 +33,7 @@ add_dependencies(noise-c noiseprotocol_build)
 set(NOISE_C_INCLUDE_DIRS "${COMPONENT_DIR}/build/include;${COMPONENT_DIR}/src/protocol") #
 
 set_target_properties(noise-c PROPERTIES IMPORTED_LOCATION
-     ${COMPONENT_DIR}/build/lib/noiseprotocol.a)
+     ${COMPONENT_DIR}/build/lib/libnoiseprotocol.a)
 set_target_properties(noise-c PROPERTIES INTERFACE_INCLUDE_DIRECTORIES
       "${NOISE_C_INCLUDE_DIRS}")
 target_link_libraries(${COMPONENT_LIB} INTERFACE noise-c)
