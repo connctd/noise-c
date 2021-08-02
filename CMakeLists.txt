@@ -1,13 +1,14 @@
 idf_component_register()
 
 set(NEWLIB_PATH ${IDF_PATH}/components/newlib/)
+set(LIBSODIUM_PATH ${IDF_PATH}/components/libsodium)
 
 externalproject_add(noiseprotocol_build
     PREFIX ${COMPONENT_DIR}
     SOURCE_DIR ${COMPONENT_DIR}
     CONFIGURE_COMMAND autoreconf -i && 
     	     ./configure --host=x86_64-host_apple-darwin12 --target=xtensa-esp32-elf 
-		--prefix=${COMPONENT_DIR}/build --without-libsodium --without-openssl 
+		--prefix=${COMPONENT_DIR}/build --without-openssl --with-libsodium
 	     "CXX=${CMAKE_CXX_COMPILER}"
           "CPP=${CMAKE_C_COMPILER} -E"
           "CC=${CMAKE_C_COMPILER}"
@@ -16,9 +17,10 @@ externalproject_add(noiseprotocol_build
           "NM=${CMAKE_NM}"
           "STRIP=${CMAKE_STRIP}"
           "CFLAGS=${CMAKE_C_FLAGS}"
-          "CPPFLAGS=${CMAKE_C_FLAGS} -I${NEWLIB_PATH}/platform_include -I${PROJECT_DIR}/build/config -I${IDF_PATH}/components/esp_common/include"
+          "CPPFLAGS=${CMAKE_C_FLAGS} -I${NEWLIB_PATH}/platform_include -I${PROJECT_DIR}/build/config -I${IDF_PATH}/components/esp_common/include -I${LIBSODIUM_PATH}/port_include -I${LIBSODIUM_PATH}/libsodium/src/libsodium/include"
           "CXXFLAGS=${CMAKE_CXX_FLAGS}"
           "LDFLAGS=${CMAKE_EXE_LINKER_FLAGS}"
+          "libsodium_CFLAGS=${CMAKE_C_FLAGS}"
     BUILD_IN_SOURCE 1
     BUILD_BYPRODUCTS ${COMPONENT_DIR}/build/lib/libnoiseprotocol.a
     # BUILD_ALWAYS 1
