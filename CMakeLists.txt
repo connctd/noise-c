@@ -17,7 +17,7 @@ externalproject_add(noiseprotocol_build
           "NM=${CMAKE_NM}"
           "STRIP=${CMAKE_STRIP}"
           "CFLAGS=${CMAKE_C_FLAGS}"
-          "CPPFLAGS=${CMAKE_C_FLAGS} -I${NEWLIB_PATH}/platform_include -I${PROJECT_DIR}/build/config -I${IDF_PATH}/components/esp_common/include -I${LIBSODIUM_PATH}/port_include -I${LIBSODIUM_PATH}/libsodium/src/libsodium/include"
+          "CPPFLAGS=${CMAKE_C_FLAGS} -DESP_PLATFORM -I${NEWLIB_PATH}/platform_include -I${PROJECT_DIR}/build/config -I${IDF_PATH}/components/esp_common/include -I${LIBSODIUM_PATH}/port_include -I${LIBSODIUM_PATH}/libsodium/src/libsodium/include"
           "CXXFLAGS=${CMAKE_CXX_FLAGS}"
           "LDFLAGS=${CMAKE_EXE_LINKER_FLAGS}"
           "libsodium_CFLAGS=${CMAKE_C_FLAGS}"

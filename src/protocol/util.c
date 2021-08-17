@@ -84,7 +84,11 @@ void noise_init_helper(void)
  * This will initialize the underlying crypto libraries.
  * You don't need to call this if you initialize the crypto libraries (eg. libsodium, OpenSSL) yourself.
  */
+#ifdef ESP_PLATFORM
+int noise_c_init(void)
+#else
 int noise_init(void)
+#endif
 {
 #if HAVE_PTHREAD
     if (pthread_once(&noise_is_initialized, noise_init_helper) != 0)

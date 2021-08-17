@@ -29,8 +29,11 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+#ifdef ESP_PLATFORM
+int noise_c_init(void);
+#else
 int noise_init(void);
+#endif
 
 #define noise_new(type) ((type *)noise_new_object(sizeof(type)))
 void *noise_new_object(size_t size);
