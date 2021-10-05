@@ -87,6 +87,7 @@ libnoiseprotocol_a_SOURCES += \
 	../backend/sodium/hash-blake2b.c \
 	../backend/sodium/hash-sha256.c \
 	../backend/sodium/hash-sha512.c \
+	../crypto/aes/rijndael-alg-fst.c \
 	../backend/sodium/sign-ed25519.c
 else !USE_LIBSODIUM
 libnoiseprotocol_a_SOURCES += \
