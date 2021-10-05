@@ -2,7 +2,7 @@ idf_component_register()
 
 set(NEWLIB_PATH ${IDF_PATH}/components/newlib/)
 set(LIBSODIUM_PATH ${IDF_PATH}/components/libsodium)
-#set(COMPILE_HOST x86_64-apple-darwin18.7.0) #x86_64-host_apple-darwin12
+#set(COMPILE_HOST x86_64-linux-gnu) #x86_64-host_apple-darwin12
 execute_process(COMMAND gcc -dumpmachine OUTPUT_VARIABLE COMPILE_HOST OUTPUT_STRIP_TRAILING_WHITESPACE)
 
 externalproject_add(noiseprotocol_build
